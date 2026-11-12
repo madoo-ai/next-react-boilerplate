@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import type { Route } from "next";
-import { Search, X } from "lucide-react";
+import { SearchLgIcon as Search, XIcon as X } from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";

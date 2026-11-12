@@ -1,14 +1,13 @@
 import {
-  KeyRound,
-  LayoutGrid,
-  Palette,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
+  Key01Icon as KeyRound,
+  LayoutGrid01Icon as LayoutGrid,
+  PaletteIcon as Palette,
+  ShieldTickIcon as ShieldCheck,
+  Users01Icon as Users,
+} from "@x1nx3r/altics-react-icons";
 import type { Permission } from "@/lib/rbac/permissions";
 import type { RoleName } from "@/lib/rbac/roles";
+import type { AppIcon } from "@/types/icon";
 
 export type NavTitleKey =
   | "dashboard"
@@ -23,7 +22,7 @@ export type NavTitleKey =
 export type NavItem = {
   titleKey: NavTitleKey;
   href: string;
-  icon: LucideIcon;
+  icon: AppIcon;
   permissions?: Permission[];
   roles?: RoleName[];
   children?: NavItem[];

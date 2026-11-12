@@ -5,13 +5,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { Route } from "next";
 import {
-  ChevronsUpDown,
-  KeyRound,
-  LogOut,
-  Palette,
-  ShieldCheck,
-  UserRound,
-} from "lucide-react";
+  ChevronSelectorVerticalIcon as ChevronsUpDown,
+  Key01Icon as KeyRound,
+  LogOut01Icon as LogOut,
+  PaletteIcon as Palette,
+  ShieldTickIcon as ShieldCheck,
+  User01Icon as UserRound,
+} from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 

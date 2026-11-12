@@ -6,6 +6,21 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "lucide-react",
+              message: "Use @x1nx3r/altics-react-icons for icons.",
+            },
+          ],
+        },
+      ],
+    },
+  },
   prettier,
   globalIgnores([
     ".next/**",

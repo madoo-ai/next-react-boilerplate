@@ -1,5 +1,3 @@
-import type { LucideIcon } from "lucide-react";
-
 import {
   Card,
   CardAction,
@@ -7,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import type { AppIcon } from "@/types/icon";
 
 export function StatCard({
   label,
@@ -17,7 +16,7 @@ export function StatCard({
   label: string;
   value: string | number;
   hint?: string;
-  icon?: LucideIcon;
+  icon?: AppIcon;
 }) {
   return (
     <Card>

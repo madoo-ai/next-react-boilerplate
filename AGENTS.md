@@ -141,6 +141,10 @@ The app listens on `http://localhost:3000` by default.
 
 - Build on `src/components/ui` (shadcn). Add a primitive with
   `npx shadcn@latest add <name>`. Do not add a second component library.
+- Icons come from `@x1nx3r/altics-react-icons` with named imports. Do not
+  import `lucide-react`; an ESLint rule blocks it. The shadcn CLI config still
+  says `iconLibrary: "lucide"` because the CLI has no Altics adapter. After
+  adding a primitive, replace any Lucide imports it brings in.
 - Use semantic tokens (`bg-background`, `text-muted-foreground`,
   `border-border`), not raw palette classes, for app surfaces.
 - Use `FieldGroup` + `Field` for forms, `gap-*` instead of `space-y-*`,

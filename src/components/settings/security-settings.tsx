@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { KeyRound, ShieldCheck, ShieldOff } from "lucide-react";
+import {
+  Key01Icon as KeyRound,
+  ShieldTickIcon as ShieldCheck,
+  ShieldOffIcon as ShieldOff,
+} from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 import QRCode from "react-qr-code";
 import { REGEXP_ONLY_DIGITS } from "input-otp";

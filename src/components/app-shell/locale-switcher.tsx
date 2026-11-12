@@ -2,7 +2,10 @@
 
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Check, Languages } from "lucide-react";
+import {
+  CheckIcon as Check,
+  Translate01Icon as Languages,
+} from "@x1nx3r/altics-react-icons";
 import { useLocale, useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";

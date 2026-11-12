@@ -1,6 +1,11 @@
 "use client";
 
-import { Check, Monitor, Moon, Sun } from "lucide-react";
+import {
+  CheckIcon as Check,
+  Monitor01Icon as Monitor,
+  Moon01Icon as Moon,
+  SunIcon as Sun,
+} from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";

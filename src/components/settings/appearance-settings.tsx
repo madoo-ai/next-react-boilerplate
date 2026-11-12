@@ -3,7 +3,12 @@
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { cn } from "cn";
-import { Check, Monitor, Moon, Sun } from "lucide-react";
+import {
+  CheckIcon as Check,
+  Monitor01Icon as Monitor,
+  Moon01Icon as Moon,
+  SunIcon as Sun,
+} from "@x1nx3r/altics-react-icons";
 import { useLocale, useTranslations } from "next-intl";
 
 import { useTheme } from "@/components/providers/theme-provider";

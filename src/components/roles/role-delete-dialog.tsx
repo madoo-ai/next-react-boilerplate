@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAction } from "next-safe-action/hooks";
-import { Trash2 } from "lucide-react";
+import { Trash02Icon as Trash2 } from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 

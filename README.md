@@ -13,7 +13,7 @@ This is the core-only sibling of the Laravel React boilerplate: auth, roles and 
 - **Settings**: profile, password, appearance, security (2FA) and account deletion.
 - **i18n**: Indonesian default and English, cookie-based with no URL prefix.
 - **Appearance**: light/dark/system, plus the Stripe-inspired default palette and 37 OpenCode color themes. Both the mode and the palette are cookie-backed with no flash on load.
-- **Frontend**: App Router, React Server Components, Server Actions, Tailwind CSS 4, shadcn/ui, Recharts, Sonner and route-typed links.
+- **Frontend**: App Router, React Server Components, Server Actions, Tailwind CSS 4, shadcn/ui, `@x1nx3r/altics-react-icons`, Recharts, Sonner and route-typed links.
 - **Data**: PostgreSQL 18, Prisma 7, generated client, migrations and an idempotent seed.
 - **Quality**: ESLint 9, Prettier, TypeScript strict, Vitest, Playwright, i18n key parity check and GitHub Actions.
 - **Ops**: multi-stage Dockerfile, Compose stack with Postgres and Mailpit, Makefile and a project rename script.
@@ -21,17 +21,17 @@ This is the core-only sibling of the Laravel React boilerplate: auth, roles and 
 
 ## Stack
 
-| Layer         | Choice                                                                      |
-| ------------- | --------------------------------------------------------------------------- |
-| Framework     | Next.js 16 (App Router, RSC, Server Actions, Turbopack)                     |
-| UI            | React 19, Tailwind CSS 4, shadcn/ui (Radix), lucide-react, Sonner, Recharts |
-| Data          | Prisma 7, PostgreSQL 18, `@prisma/adapter-pg`                               |
-| Auth          | Better Auth 1.x (email/password, 2FA, verification, reset)                  |
-| Authorization | App-owned RBAC tables and guards                                            |
-| Forms         | Zod 4, React Hook Form, next-safe-action                                    |
-| i18n          | next-intl, cookie locale                                                    |
-| Tests         | Vitest, Testing Library, Playwright                                         |
-| Runtime       | Node 24, Docker, Compose                                                    |
+| Layer         | Choice                                                                            |
+| ------------- | --------------------------------------------------------------------------------- |
+| Framework     | Next.js 16 (App Router, RSC, Server Actions, Turbopack)                           |
+| UI            | React 19, Tailwind CSS 4, shadcn/ui (Radix), Altics React Icons, Sonner, Recharts |
+| Data          | Prisma 7, PostgreSQL 18, `@prisma/adapter-pg`                                     |
+| Auth          | Better Auth 1.x (email/password, 2FA, verification, reset)                        |
+| Authorization | App-owned RBAC tables and guards                                                  |
+| Forms         | Zod 4, React Hook Form, next-safe-action                                          |
+| i18n          | next-intl, cookie locale                                                          |
+| Tests         | Vitest, Testing Library, Playwright                                               |
+| Runtime       | Node 24, Docker, Compose                                                          |
 
 ## Demo accounts
 

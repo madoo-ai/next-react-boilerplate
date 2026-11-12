@@ -35,7 +35,7 @@ src/
     common/                  # page header, stat card, pagination
     dashboard/               # charts
     roles/ users/ settings/  # domain forms and tables
-    ui/                      # shadcn primitives
+    ui/                      # shadcn primitives (Altics icons)
   config/                    # app name and navigation
   emails/                    # React Email templates
   i18n/                      # locale config and request config
@@ -57,6 +57,20 @@ tests/
 docs/
   adr/
 ```
+
+## Icons
+
+Icons come from `@x1nx3r/altics-react-icons`. Use named imports from the
+package root; the package sets `sideEffects` to `false`, so unused icons are
+tree-shaken.
+
+```tsx
+import { CheckIcon, SearchLgIcon } from "@x1nx3r/altics-react-icons";
+```
+
+The shadcn CLI config still says `iconLibrary: "lucide"` because the CLI has no
+Altics adapter. After adding a shadcn primitive, replace any `lucide-react`
+imports with the Altics equivalents. ESLint rejects `lucide-react` imports.
 
 ## Server and client boundaries
 

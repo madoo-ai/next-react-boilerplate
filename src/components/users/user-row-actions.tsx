@@ -4,7 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAction } from "next-safe-action/hooks";
-import { MoreHorizontal, Pencil, Trash2, UserCheck } from "lucide-react";
+import {
+  DotsHorizontalIcon as MoreHorizontal,
+  Pencil01Icon as Pencil,
+  Trash02Icon as Trash2,
+  UserCheck01Icon as UserCheck,
+} from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 

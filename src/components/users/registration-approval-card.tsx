@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAction } from "next-safe-action/hooks";
-import { CheckCircle2, ShieldAlert } from "lucide-react";
+import {
+  CheckCircleIcon as CheckCircle2,
+  Shield01Icon as ShieldAlert,
+} from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 

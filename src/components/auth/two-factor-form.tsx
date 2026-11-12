@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { KeyRound, ShieldCheck } from "lucide-react";
+import {
+  Key01Icon as KeyRound,
+  ShieldTickIcon as ShieldCheck,
+} from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 import { REGEXP_ONLY_DIGITS } from "input-otp";
 

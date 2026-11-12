@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import {
+  EyeIcon as Eye,
+  EyeOffIcon as EyeOff,
+} from "@x1nx3r/altics-react-icons";
 import { useTranslations } from "next-intl";
 
 import {

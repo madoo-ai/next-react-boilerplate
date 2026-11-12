@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import {
-  CheckCircle2,
-  Clock3,
-  KeyRound,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
+  CheckCircleIcon as CheckCircle2,
+  ClockIcon as Clock3,
+  Key01Icon as KeyRound,
+  ShieldTickIcon as ShieldCheck,
+  Users01Icon as Users,
+} from "@x1nx3r/altics-react-icons";
 
 import { DashboardCharts } from "@/components/dashboard/dashboard-charts";
 import { PageHeader } from "@/components/common/page-header";

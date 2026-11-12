@@ -3,7 +3,7 @@
 import { Toaster as Sonner, type ToasterProps } from "sonner"
 
 import { useTheme } from "@/components/providers/theme-provider"
-import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon } from "lucide-react"
+import { CheckCircleIcon as CircleCheckIcon, InfoCircleIcon as InfoIcon, AlertTriangleIcon as TriangleAlertIcon, AlertOctagonIcon as OctagonXIcon, Loading03Icon as Loader2Icon } from "@x1nx3r/altics-react-icons";
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme } = useTheme()

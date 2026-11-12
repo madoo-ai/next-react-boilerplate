@@ -1,5 +1,5 @@
 import { cn } from "cn"
-import { Loader2Icon } from "lucide-react"
+import { Loading03Icon as Loader2Icon } from "@x1nx3r/altics-react-icons";
 
 function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
   return (

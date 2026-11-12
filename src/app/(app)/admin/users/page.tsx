@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Plus } from "lucide-react";
+import { PlusIcon as Plus } from "@x1nx3r/altics-react-icons";
 
 import { PageHeader } from "@/components/common/page-header";
 import { DataPagination } from "@/components/common/data-pagination";
