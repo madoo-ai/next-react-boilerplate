@@ -3,11 +3,10 @@ name: next-react-boilerplate
 
 # The app is a standalone Next.js repository. The session image comes from
 # the environment profile, not from the repository's production Dockerfile.
-# laravel-php85 supplies Node 22, PostgreSQL 18, and the common base tools
-# this app needs today (the app requires Node 22 or newer).
+# The next-node24 profile supplies Node 24 and PostgreSQL 18.
 environment:
-  profile: laravel-php85
-  version: "2026.10"
+  profile: next-node24
+  version: "upstream-cfed267973"
 
 workspace: template
 preview:
