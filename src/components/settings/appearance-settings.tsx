@@ -2,7 +2,8 @@
 
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { Monitor, Moon, Sun } from "lucide-react";
+import { cn } from "cn";
+import { Check, Monitor, Moon, Sun } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
 import { useTheme } from "@/components/providers/theme-provider";
@@ -24,12 +25,13 @@ import {
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { isLocale, localeLabels, locales, type Locale } from "@/i18n/config";
 import { setLocale } from "@/lib/i18n/locale-actions";
+import { COLOR_THEME_OPTIONS } from "@/lib/theme/theme-options";
 import type { Theme } from "@/lib/theme/theme";
 
 export function AppearanceSettings() {
   const t = useTranslations("settings.appearance");
   const currentLocale = useLocale();
-  const { theme, setTheme } = useTheme();
+  const { theme, colorTheme, setTheme, setColorTheme } = useTheme();
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const activeLocale = isLocale(currentLocale) ? currentLocale : "id";
@@ -95,6 +97,58 @@ export function AppearanceSettings() {
               </SelectGroup>
             </SelectContent>
           </Select>
+        </div>
+        <div className="flex flex-col gap-2">
+          <span className="text-sm font-medium">{t("colorTheme")}</span>
+          <p className="text-sm text-muted-foreground">
+            {t("colorThemeDescription")}
+          </p>
+          <div className="grid max-h-[28rem] gap-2 overflow-y-auto pr-1 sm:grid-cols-2 xl:grid-cols-3">
+            {COLOR_THEME_OPTIONS.map((option) => {
+              const selected = colorTheme === option.id;
+
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  aria-pressed={selected}
+                  onClick={() => setColorTheme(option.id)}
+                  className={cn(
+                    "flex items-center gap-3 rounded-lg border p-2.5 text-left transition-colors",
+                    selected
+                      ? "border-primary bg-primary/5"
+                      : "hover:bg-muted/50",
+                  )}
+                >
+                  <span className="flex shrink-0 overflow-hidden rounded-md border">
+                    {[
+                      option.light.neutral,
+                      option.light.primary,
+                      option.dark.neutral,
+                      option.dark.primary,
+                    ].map((color, index) => (
+                      <span
+                        key={`${option.id}-${index}`}
+                        className="size-6"
+                        style={{ backgroundColor: color }}
+                      />
+                    ))}
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-col">
+                    <span className="truncate text-sm font-medium">
+                      {option.name}
+                    </span>
+                    <span className="truncate text-xs text-muted-foreground">
+                      {option.id}
+                    </span>
+                  </span>
+                  {selected ? (
+                    <Check className="size-4 shrink-0 text-primary" />
+                  ) : null}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </CardContent>
     </Card>

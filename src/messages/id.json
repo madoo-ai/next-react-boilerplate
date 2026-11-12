@@ -345,6 +345,8 @@
       "light": "Terang",
       "dark": "Gelap",
       "system": "Sistem",
+      "colorTheme": "Tema warna",
+      "colorThemeDescription": "Pilih palet untuk mode terang dan gelap. Default-nya adalah palet bergaya Stripe.",
       "saved": "Tampilan diperbarui."
     },
     "security": {

@@ -345,6 +345,8 @@
       "light": "Light",
       "dark": "Dark",
       "system": "System",
+      "colorTheme": "Color theme",
+      "colorThemeDescription": "Choose a palette for light and dark mode. The default is the Stripe-inspired palette.",
       "saved": "Appearance updated."
     },
     "security": {

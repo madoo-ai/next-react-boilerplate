@@ -151,6 +151,9 @@ The app listens on `http://localhost:3000` by default.
 - Use the full Card composition (`CardHeader`, `CardContent`, `CardFooter`).
 - Overlays need a title. Use `AlertDialog` for destructive confirmation.
 - Send feedback through Sonner toasts. Use `FormAlert` for form-level errors.
+- Color themes are generated. Edit `src/lib/theme/opencode-themes.json` and run
+  `npm run themes:generate`; do not hand-edit `src/app/themes.css` or
+  `src/lib/theme/theme-options.ts`.
 
 ## i18n rules
 

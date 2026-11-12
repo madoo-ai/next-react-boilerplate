@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "@/components/providers/theme-provider";
-import { themes, type Theme } from "@/lib/theme/theme";
+import { themeModes, type Theme } from "@/lib/theme/theme";
 
 const themeIcons = {
   light: Sun,
@@ -32,7 +32,7 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-40">
-        {themes.map((option) => {
+        {themeModes.map((option) => {
           const OptionIcon = themeIcons[option];
 
           return (

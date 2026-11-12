@@ -59,3 +59,35 @@ test("theme can be switched to dark and back", async ({ page }) => {
   await page.getByRole("radio", { name: "Sistem" }).click();
   await expect(page.locator("html")).not.toHaveClass(/dark/);
 });
+
+test("color theme applies its light and dark palettes", async ({ page }) => {
+  await loginAs(page);
+  await page.goto("/settings/appearance");
+
+  await page.getByRole("button", { name: /Dracula/i }).click();
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-color-theme",
+    "dracula",
+  );
+
+  const lightBackground = await page.evaluate(() =>
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--background")
+      .trim(),
+  );
+  expect(lightBackground).toBe("#f8f8f2");
+
+  await page.getByRole("radio", { name: "Gelap" }).click();
+  const darkBackground = await page.evaluate(() =>
+    getComputedStyle(document.documentElement)
+      .getPropertyValue("--background")
+      .trim(),
+  );
+  expect(darkBackground).toBe("#1d1e28");
+
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute(
+    "data-color-theme",
+    "dracula",
+  );
+});

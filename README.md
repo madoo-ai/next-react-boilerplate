@@ -12,7 +12,7 @@ This is the core-only sibling of the Laravel React boilerplate: auth, roles and 
 - **Users and roles**: searchable, filterable and paginated users; create/edit/delete; role permission matrix; protected system roles.
 - **Settings**: profile, password, appearance, security (2FA) and account deletion.
 - **i18n**: Indonesian default and English, cookie-based with no URL prefix.
-- **Appearance**: light/dark/system with a cookie-backed provider and no flash on load.
+- **Appearance**: light/dark/system, plus the Stripe-inspired default palette and 37 OpenCode color themes. Both the mode and the palette are cookie-backed with no flash on load.
 - **Frontend**: App Router, React Server Components, Server Actions, Tailwind CSS 4, shadcn/ui, Recharts, Sonner and route-typed links.
 - **Data**: PostgreSQL 18, Prisma 7, generated client, migrations and an idempotent seed.
 - **Quality**: ESLint 9, Prettier, TypeScript strict, Vitest, Playwright, i18n key parity check and GitHub Actions.

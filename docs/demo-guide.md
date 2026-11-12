@@ -30,10 +30,10 @@ All demo accounts use the password `password`.
    Sign out and register a new account. The account is created as pending and
    login is blocked. Sign back in as superadmin, verify the account, then sign
    in as the new user.
-8. **Open Settings.** Update the profile, switch to English, switch to dark
-   mode, then open Security and enable 2FA. Scan the QR code with an
-   authenticator app, verify a code, sign out and sign back in to see the
-   challenge page.
+8. **Open Settings.** Update the profile, switch to English, try an OpenCode
+   color theme, switch to dark mode, then open Security and enable 2FA. Scan
+   the QR code with an authenticator app, verify a code, sign out and sign
+   back in to see the challenge page.
 9. **Try a forbidden route.** Sign in as the regular user and open
    `/admin/users` directly. The page guard redirects to `/403`.
 10. **Delete an account.** On the Profile danger zone, confirm the password and

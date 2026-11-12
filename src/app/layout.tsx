@@ -8,9 +8,15 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { APP_DESCRIPTION, APP_NAME } from "@/config/app";
+import {
+  colorThemeCookieName,
+  defaultColorTheme,
+  isColorTheme,
+} from "@/lib/theme/color-theme";
 import { defaultTheme, isTheme, themeCookieName } from "@/lib/theme/theme";
 
 import "./globals.css";
+import "./themes.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,13 +43,18 @@ export default async function RootLayout({
     cookies(),
   ]);
   const cookieTheme = cookieStore.get(themeCookieName)?.value;
+  const cookieColorTheme = cookieStore.get(colorThemeCookieName)?.value;
   const theme = isTheme(cookieTheme) ? cookieTheme : defaultTheme;
+  const colorTheme = isColorTheme(cookieColorTheme)
+    ? cookieColorTheme
+    : defaultColorTheme;
   const themeScript = `(function(){try{var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);var t=m?decodeURIComponent(m[1]):"${theme}";var d=t==="dark"||(t==="system"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d);document.documentElement.style.colorScheme=d?"dark":"light";}catch(e){}})();`;
 
   return (
     <html
       lang={locale}
       suppressHydrationWarning
+      data-color-theme={colorTheme === "default" ? undefined : colorTheme}
       className={`${inter.variable} h-full`}
     >
       <head>
@@ -51,7 +62,7 @@ export default async function RootLayout({
       </head>
       <body className="min-h-svh bg-background text-foreground antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider initialTheme={theme}>
+          <ThemeProvider initialTheme={theme} initialColorTheme={colorTheme}>
             <TooltipProvider>
               {children}
               <Toaster richColors position="top-right" closeButton />

@@ -3,6 +3,9 @@ node_modules
 .manus
 src/generated
 src/components/ui
+src/app/themes.css
+src/lib/theme/theme-options.ts
+src/lib/theme/opencode-themes.json
 .agents
 .claude
 .windsurf

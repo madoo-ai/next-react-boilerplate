@@ -9,11 +9,15 @@ import {
   useState,
 } from "react";
 
+import { colorThemeCookieName } from "@/lib/theme/color-theme";
+import type { ColorThemeId } from "@/lib/theme/theme-options";
 import type { Theme } from "@/lib/theme/theme";
 
 type ThemeContextValue = {
   theme: Theme;
+  colorTheme: ColorThemeId;
   setTheme: (theme: Theme) => void;
+  setColorTheme: (theme: ColorThemeId) => void;
 };
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
@@ -40,17 +44,35 @@ function persistTheme(theme: Theme) {
   document.cookie = `theme=${theme};path=/;max-age=31536000;samesite=lax`;
 }
 
+function applyColorTheme(theme: ColorThemeId) {
+  if (theme === "default") {
+    delete document.documentElement.dataset.colorTheme;
+    return;
+  }
+
+  document.documentElement.dataset.colorTheme = theme;
+}
+
+function persistColorTheme(theme: ColorThemeId) {
+  document.cookie = `${colorThemeCookieName}=${theme};path=/;max-age=31536000;samesite=lax`;
+}
+
 export function ThemeProvider({
   initialTheme,
+  initialColorTheme,
   children,
 }: {
   initialTheme: Theme;
+  initialColorTheme: ColorThemeId;
   children: React.ReactNode;
 }) {
   const [theme, setThemeState] = useState<Theme>(initialTheme);
+  const [colorTheme, setColorThemeState] =
+    useState<ColorThemeId>(initialColorTheme);
 
   useEffect(() => {
     applyTheme(theme);
+    applyColorTheme(colorTheme);
 
     if (theme !== "system") return;
 
@@ -59,7 +81,7 @@ export function ThemeProvider({
 
     media.addEventListener("change", onChange);
     return () => media.removeEventListener("change", onChange);
-  }, [theme]);
+  }, [theme, colorTheme]);
 
   const setTheme = useCallback((nextTheme: Theme) => {
     setThemeState(nextTheme);
@@ -67,7 +89,16 @@ export function ThemeProvider({
     applyTheme(nextTheme);
   }, []);
 
-  const value = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
+  const setColorTheme = useCallback((nextTheme: ColorThemeId) => {
+    setColorThemeState(nextTheme);
+    persistColorTheme(nextTheme);
+    applyColorTheme(nextTheme);
+  }, []);
+
+  const value = useMemo(
+    () => ({ theme, colorTheme, setTheme, setColorTheme }),
+    [theme, colorTheme, setTheme, setColorTheme],
+  );
 
   return <ThemeContext value={value}>{children}</ThemeContext>;
 }
