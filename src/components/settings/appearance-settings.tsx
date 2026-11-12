@@ -2,9 +2,7 @@
 
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { cn } from "cn";
 import {
-  CheckIcon as Check,
   Monitor01Icon as Monitor,
   Moon01Icon as Moon,
   SunIcon as Sun,
@@ -12,6 +10,7 @@ import {
 import { useLocale, useTranslations } from "next-intl";
 
 import { useTheme } from "@/components/providers/theme-provider";
+import { ThemeCard } from "@/components/theme/theme-card";
 import {
   Card,
   CardContent,
@@ -109,50 +108,14 @@ export function AppearanceSettings() {
             {t("colorThemeDescription")}
           </p>
           <div className="grid max-h-[28rem] gap-2 overflow-y-auto pr-1 sm:grid-cols-2 xl:grid-cols-3">
-            {COLOR_THEME_OPTIONS.map((option) => {
-              const selected = colorTheme === option.id;
-
-              return (
-                <button
-                  key={option.id}
-                  type="button"
-                  aria-pressed={selected}
-                  onClick={() => setColorTheme(option.id)}
-                  className={cn(
-                    "flex items-center gap-3 rounded-lg border p-2.5 text-left transition-colors",
-                    selected
-                      ? "border-primary bg-primary/5"
-                      : "hover:bg-muted/50",
-                  )}
-                >
-                  <span className="flex shrink-0 overflow-hidden rounded-md border">
-                    {[
-                      option.light.neutral,
-                      option.light.primary,
-                      option.dark.neutral,
-                      option.dark.primary,
-                    ].map((color, index) => (
-                      <span
-                        key={`${option.id}-${index}`}
-                        className="size-6"
-                        style={{ backgroundColor: color }}
-                      />
-                    ))}
-                  </span>
-                  <span className="flex min-w-0 flex-1 flex-col">
-                    <span className="truncate text-sm font-medium">
-                      {option.name}
-                    </span>
-                    <span className="truncate text-xs text-muted-foreground">
-                      {option.id}
-                    </span>
-                  </span>
-                  {selected ? (
-                    <Check className="size-4 shrink-0 text-primary" />
-                  ) : null}
-                </button>
-              );
-            })}
+            {COLOR_THEME_OPTIONS.map((option) => (
+              <ThemeCard
+                key={option.id}
+                option={option}
+                selected={colorTheme === option.id}
+                onSelect={setColorTheme}
+              />
+            ))}
           </div>
         </div>
       </CardContent>

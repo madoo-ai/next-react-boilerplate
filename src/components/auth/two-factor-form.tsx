@@ -38,7 +38,7 @@ export function TwoFactorForm() {
   const [pending, setPending] = useState<"totp" | "backup" | null>(null);
 
   function complete() {
-    router.push("/");
+    router.push("/dashboard");
     router.refresh();
   }
 

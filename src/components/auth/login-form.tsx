@@ -35,8 +35,8 @@ const schema = z.object({
 type LoginValues = z.infer<typeof schema>;
 
 function safeNextPath(next: string | undefined) {
-  if (!next) return "/";
-  if (!next.startsWith("/") || next.startsWith("//")) return "/";
+  if (!next) return "/dashboard";
+  if (!next.startsWith("/") || next.startsWith("//")) return "/dashboard";
   return next;
 }
 

@@ -36,7 +36,7 @@ export type NavUser = {
 export const mainNavItems: NavItem[] = [
   {
     titleKey: "dashboard",
-    href: "/",
+    href: "/dashboard",
     icon: LayoutGrid,
   },
 ];

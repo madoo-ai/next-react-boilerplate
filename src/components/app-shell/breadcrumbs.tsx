@@ -46,7 +46,7 @@ export function Breadcrumbs() {
     })
     .filter((item): item is { href: string; label: string } => !!item);
 
-  if (items.length === 0) {
+  if (items.length === 0 || pathname === "/dashboard") {
     return (
       <Breadcrumb>
         <BreadcrumbList>
@@ -63,7 +63,7 @@ export function Breadcrumbs() {
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="/">{tNav("dashboard")}</Link>
+            <Link href="/dashboard">{tNav("dashboard")}</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         {items.map((item, index) => (

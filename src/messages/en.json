@@ -59,6 +59,7 @@
     "openMenu": "Open menu",
     "toggleSidebar": "Toggle sidebar",
     "backToDashboard": "Back to dashboard",
+    "backToHome": "Back to home",
     "showPassword": "Show password",
     "hidePassword": "Hide password",
     "remove": "Remove",
@@ -209,7 +210,7 @@
     "charts": {
       "roleDistribution": "Users by role",
       "roleDistributionHint": "Accounts grouped by role.",
-      "signups": "New users (30 days)",
+      "signups": "User growth (30 days)",
       "signupsHint": "Accounts created in the last 30 days.",
       "users": "Users",
       "noData": "No data yet."
@@ -391,6 +392,136 @@
       "title": "Something went wrong",
       "description": "An unexpected error occurred. Try again.",
       "retry": "Try again"
+    }
+  },
+  "landing": {
+    "meta": {
+      "title": "A Next.js starter with a point of view.",
+      "description": "A production-minded Next.js 16 starter with Better Auth, Prisma, RBAC, i18n and 38 color themes."
+    },
+    "nav": {
+      "features": "What's inside",
+      "themes": "Themes",
+      "stack": "Stack",
+      "signIn": "Sign in",
+      "dashboard": "Open dashboard"
+    },
+    "hero": {
+      "title": "Start with the parts nobody wants to rebuild.",
+      "description": "Auth, roles, user management, settings, localization and a themeable shadcn shell. A production-minded Next.js base for the thing that is actually yours.",
+      "primaryCta": "Open the demo",
+      "primaryCtaAuthed": "Open the dashboard",
+      "secondaryCta": "See what's inside",
+      "note": "Next.js 16, Prisma 7, Better Auth and 38 themes. Demo accounts use the password \"password\".",
+      "previewLabel": "A preview of the dashboard",
+      "themesBadge": "38 themes"
+    },
+    "themes": {
+      "live": "Live palette",
+      "current": "Current",
+      "title": "38 palettes. One system.",
+      "description": "The mode and the palette are independent. Pick light, dark or system, then give it a Stripe, Dracula, Nord or Catppuccin surface. The choice is a cookie away from the next request.",
+      "all": "Open appearance settings",
+      "featured": "Featured palettes"
+    },
+    "features": {
+      "title": "The work you keep repeating, already done.",
+      "description": "The boilerplate covers the parts that are expensive to get right and easy to get wrong. The domain is yours.",
+      "items": {
+        "auth": {
+          "title": "Auth that behaves",
+          "body": "Email and password, verification, reset, TOTP 2FA, a confirm-password gate and an approval mode that actually blocks pending accounts."
+        },
+        "rbac": {
+          "title": "Permissions with a spine",
+          "body": "One role per user, a permission matrix, protected superadmins and escalation checks inside the actions, not only in the sidebar."
+        },
+        "shell": {
+          "title": "A shell that ships",
+          "body": "Sidebar, breadcrumbs, settings, profile, password, appearance, security and account deletion. One title per page, consistent forms and a real empty state."
+        },
+        "data": {
+          "title": "Typed end to end",
+          "body": "Prisma 7, Zod, Server Actions, route-typed links and a seed that creates enough data to make the screens real."
+        },
+        "design": {
+          "title": "A design baseline",
+          "body": "The Stripe-inspired default and 37 OpenCode palettes, semantic tokens and Altics icons. Swap the identity without rebuilding the UI."
+        },
+        "ops": {
+          "title": "Boring operations",
+          "body": "One Postgres, one Dockerfile, a Compose stack, a seed and a Makefile. The deployment story stays obvious."
+        }
+      }
+    },
+    "stack": {
+      "title": "Boring in the right places.",
+      "description": "One framework, one database, one auth library, one UI layer. The choices are deliberate, and the quality gates run in CI.",
+      "note": "Plus Zod, React Hook Form, next-intl, Sonner and Recharts.",
+      "items": {
+        "next": {
+          "name": "Next.js 16",
+          "role": "App Router, RSC, Server Actions"
+        },
+        "react": {
+          "name": "React 19",
+          "role": "Server-first UI"
+        },
+        "typescript": {
+          "name": "TypeScript",
+          "role": "Strict mode"
+        },
+        "prisma": {
+          "name": "Prisma 7",
+          "role": "Schema, migrations, client"
+        },
+        "postgres": {
+          "name": "PostgreSQL 18",
+          "role": "The only database"
+        },
+        "tailwind": {
+          "name": "Tailwind CSS 4",
+          "role": "Semantic tokens"
+        },
+        "auth": {
+          "name": "Better Auth",
+          "role": "Sessions, 2FA, verification"
+        },
+        "docker": {
+          "name": "Docker",
+          "role": "Standalone runtime"
+        },
+        "vitest": {
+          "name": "Vitest",
+          "role": "Unit tests"
+        },
+        "playwright": {
+          "name": "Playwright",
+          "role": "End-to-end tests"
+        }
+      }
+    },
+    "demo": {
+      "title": "Try the actual app.",
+      "description": "The demo is seeded with three roles and enough users to make the dashboard, tables and charts feel real. No setup, no sales call.",
+      "accounts": "Demo accounts",
+      "password": "Password",
+      "signIn": "Sign in to the demo",
+      "create": "Create an account",
+      "command": "Or run it locally",
+      "copy": "Use password \"password\"."
+    },
+    "footer": {
+      "tagline": "A Next.js starter with a point of view.",
+      "product": "Product",
+      "access": "Access",
+      "features": "What's inside",
+      "themes": "Themes",
+      "stack": "Stack",
+      "signIn": "Sign in",
+      "create": "Create account",
+      "license": "MIT licensed.",
+      "built": "Built with Next.js, Prisma, Better Auth and Altics icons."
     }
   },
   "permissions": {

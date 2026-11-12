@@ -13,6 +13,7 @@ This is the core-only sibling of the Laravel React boilerplate: auth, roles and 
 - **Settings**: profile, password, appearance, security (2FA) and account deletion.
 - **i18n**: Indonesian default and English, cookie-based with no URL prefix.
 - **Appearance**: light/dark/system, plus the Stripe-inspired default palette and 37 OpenCode color themes. Both the mode and the palette are cookie-backed with no flash on load.
+- **Landing page**: a public entry point with a live theme lab, an actual dashboard preview, the feature tour and the demo accounts.
 - **Frontend**: App Router, React Server Components, Server Actions, Tailwind CSS 4, shadcn/ui, `@x1nx3r/altics-react-icons`, Recharts, Sonner and route-typed links.
 - **Data**: PostgreSQL 18, Prisma 7, generated client, migrations and an idempotent seed.
 - **Quality**: ESLint 9, Prettier, TypeScript strict, Vitest, Playwright, i18n key parity check and GitHub Actions.
@@ -66,7 +67,8 @@ If you prefer the container stack:
 docker compose up --build
 ```
 
-- App: http://localhost:3000
+- Landing: http://localhost:3000
+- Dashboard after sign-in: http://localhost:3000/dashboard
 - Mailpit: http://localhost:8025
 - Postgres: `127.0.0.1:5432` (Compose only)
 
@@ -125,24 +127,26 @@ The Compose stack runs `prisma migrate deploy` and the seed once before the app 
 
 ## Where things live
 
-| What                   | Where                                                                     |
-| ---------------------- | ------------------------------------------------------------------------- |
-| Routes                 | `src/app/` (`(app)` for the authenticated shell, `(auth)` for auth pages) |
-| Auth config            | `src/lib/auth/auth.ts`                                                    |
-| Auth client            | `src/lib/auth/auth-client.ts`                                             |
-| Session and guards     | `src/lib/auth/session.ts`                                                 |
-| RBAC                   | `src/lib/rbac/`                                                           |
-| Server actions         | `src/lib/{users,roles,settings}/actions.ts`                               |
-| Prisma schema          | `prisma/schema.prisma`                                                    |
-| Seed                   | `prisma/seed.ts`                                                          |
-| UI primitives          | `src/components/ui/` (shadcn, do not hand-roll)                           |
-| App shell              | `src/components/app-shell/`                                               |
-| Navigation             | `src/config/navigation.ts`                                                |
-| Messages               | `src/messages/`                                                           |
-| Design contract        | `DESIGN.md`                                                               |
-| Architecture decisions | `docs/adr/`                                                               |
-| Product docs           | `docs/`                                                                   |
-| Vendor agent skills    | `.agents/skills/`                                                         |
+| What                   | Where                                                                                                         |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Routes                 | `src/app/` (`(marketing)` for the landing page, `(app)` for the authenticated shell, `(auth)` for auth pages) |
+| Auth config            | `src/lib/auth/auth.ts`                                                                                        |
+| Auth client            | `src/lib/auth/auth-client.ts`                                                                                 |
+| Session and guards     | `src/lib/auth/session.ts`                                                                                     |
+| RBAC                   | `src/lib/rbac/`                                                                                               |
+| Server actions         | `src/lib/{users,roles,settings}/actions.ts`                                                                   |
+| Prisma schema          | `prisma/schema.prisma`                                                                                        |
+| Seed                   | `prisma/seed.ts`                                                                                              |
+| UI primitives          | `src/components/ui/` (shadcn, do not hand-roll)                                                               |
+| App shell              | `src/components/app-shell/`                                                                                   |
+| Landing page           | `src/app/(marketing)/`, `src/components/marketing/`                                                           |
+| Theme picker           | `src/components/theme/`, `src/lib/theme/`                                                                     |
+| Navigation             | `src/config/navigation.ts`                                                                                    |
+| Messages               | `src/messages/`                                                                                               |
+| Design contract        | `DESIGN.md`                                                                                                   |
+| Architecture decisions | `docs/adr/`                                                                                                   |
+| Product docs           | `docs/`                                                                                                       |
+| Vendor agent skills    | `.agents/skills/`                                                                                             |
 
 ## Agent skills
 

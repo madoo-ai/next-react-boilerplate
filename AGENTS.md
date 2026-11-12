@@ -58,30 +58,33 @@ longer builds, fix the build before you continue.
 
 ## Map
 
-| Need                               | Read                                        |
-| ---------------------------------- | ------------------------------------------- |
-| Product scope and setup            | `README.md`                                 |
-| Request lifecycle and conventions  | `docs/architecture.md`                      |
-| Auth, approval and RBAC flows      | `docs/auth-and-rbac.md`                     |
-| User and role management           | `docs/users-and-roles.md`                   |
-| Settings, 2FA and account deletion | `docs/settings.md`                          |
-| Locale system                      | `docs/internationalization.md`              |
-| Every route and gate               | `docs/routes-reference.md`                  |
-| Demo script                        | `docs/demo-guide.md`                        |
-| Architecture decisions             | `docs/adr/`                                 |
-| Visual rules                       | `DESIGN.md`                                 |
-| Routes and layouts                 | `src/app/`                                  |
-| Auth server config                 | `src/lib/auth/auth.ts`                      |
-| Auth client                        | `src/lib/auth/auth-client.ts`               |
-| Session, permissions and guards    | `src/lib/auth/session.ts`, `src/lib/rbac/`  |
-| Server actions                     | `src/lib/{users,roles,settings}/actions.ts` |
-| Prisma                             | `prisma/schema.prisma`, `prisma/seed.ts`    |
-| Navigation                         | `src/config/navigation.ts`                  |
-| UI primitives                      | `src/components/ui/`                        |
-| App shell                          | `src/components/app-shell/`                 |
-| Translations                       | `src/messages/{en,id}.json`                 |
-| Tests                              | `tests/unit`, `tests/e2e`                   |
-| Vendor agent skills                | `.agents/skills/`, `docs/agent-skills.md`   |
+| Need                               | Read                                                |
+| ---------------------------------- | --------------------------------------------------- |
+| Product scope and setup            | `README.md`                                         |
+| Request lifecycle and conventions  | `docs/architecture.md`                              |
+| Auth, approval and RBAC flows      | `docs/auth-and-rbac.md`                             |
+| User and role management           | `docs/users-and-roles.md`                           |
+| Settings, 2FA and account deletion | `docs/settings.md`                                  |
+| Locale system                      | `docs/internationalization.md`                      |
+| Every route and gate               | `docs/routes-reference.md`                          |
+| Demo script                        | `docs/demo-guide.md`                                |
+| Architecture decisions             | `docs/adr/`                                         |
+| Visual rules                       | `DESIGN.md`                                         |
+| Routes and layouts                 | `src/app/` (`(marketing)`, `(app)`, `(auth)`)       |
+| Landing page                       | `src/app/(marketing)/`, `src/components/marketing/` |
+| Theme picker                       | `src/components/theme/`, `src/lib/theme/`           |
+| Auth server config                 | `src/lib/auth/auth.ts`                              |
+| Auth client                        | `src/lib/auth/auth-client.ts`                       |
+| Session, permissions and guards    | `src/lib/auth/session.ts`, `src/lib/rbac/`          |
+| Server actions                     | `src/lib/{users,roles,settings}/actions.ts`         |
+| Prisma                             | `prisma/schema.prisma`, `prisma/seed.ts`            |
+| Navigation                         | `src/config/navigation.ts`                          |
+| UI primitives                      | `src/components/ui/`                                |
+| App shell                          | `src/components/app-shell/`                         |
+| Landing components                 | `src/components/marketing/`                         |
+| Translations                       | `src/messages/{en,id}.json`                         |
+| Tests                              | `tests/unit`, `tests/e2e`                           |
+| Vendor agent skills                | `.agents/skills/`, `docs/agent-skills.md`           |
 
 ## Commands
 
@@ -104,6 +107,8 @@ The app listens on `http://localhost:3000` by default.
 
 ## Architecture rules
 
+- `/` is the public landing page. `/dashboard` is the authenticated home; auth
+  flows, redirects and sidebar links point there.
 - Default to Server Components. Add `"use client"` only for state, effects,
   browser APIs or event handlers.
 - Use Server Actions for mutations. Do not add a REST layer for the web app
@@ -158,6 +163,11 @@ The app listens on `http://localhost:3000` by default.
 - Color themes are generated. Edit `src/lib/theme/opencode-themes.json` and run
   `npm run themes:generate`; do not hand-edit `src/app/themes.css` or
   `src/lib/theme/theme-options.ts`.
+- Product screens use Inter. The marketing and auth editorial headings use
+  `font-display` (Instrument Serif).
+- Motion is CSS-only and compositor-friendly: animate `transform` and `opacity`,
+  gate it with `motion-safe`, and keep the reduced-motion path fully usable.
+  Do not animate width, height, top or left.
 
 ## i18n rules
 

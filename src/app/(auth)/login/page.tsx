@@ -25,7 +25,7 @@ export default async function LoginPage({
   const session = await getSession();
 
   if (session) {
-    redirect("/");
+    redirect("/dashboard");
   }
 
   const [params, t, tAll] = await Promise.all([

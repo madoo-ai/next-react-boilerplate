@@ -14,3 +14,4 @@ decision and its consequences. Supersede a record instead of rewriting history.
 | [0007](0007-vendor-agent-skills.md)                | Commit vendor agent skills                      |
 | [0008](0008-boilerplate-is-a-scaffold.md)          | Boilerplate is a scaffold                       |
 | [0009](0009-color-themes-are-generated.md)         | Color themes are generated from vendor palettes |
+| [0010](0010-public-landing-page.md)                | The root path is a public landing page          |

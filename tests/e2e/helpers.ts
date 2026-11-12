@@ -9,7 +9,7 @@ export async function loginAs(
   await page.getByLabel("Email").fill(email);
   await page.getByLabel("Kata sandi", { exact: true }).fill(password);
   await page.getByRole("button", { name: "Masuk", exact: true }).click();
-  await page.waitForURL("/");
+  await page.waitForURL("/dashboard");
 }
 
 export async function logout(page: Page) {

@@ -4,6 +4,12 @@ import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+} from "@/components/ui/card";
 
 export default function ErrorPage({
   error,
@@ -19,13 +25,22 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center gap-4 p-6 text-center">
-      <p className="text-sm font-medium text-primary">500</p>
-      <h1 className="text-2xl font-light tracking-tight">{t("title")}</h1>
-      <p className="max-w-md text-sm text-muted-foreground">
-        {t("description")}
-      </p>
-      <Button onClick={reset}>{t("retry")}</Button>
+    <div className="relative flex min-h-svh items-center justify-center overflow-hidden bg-mesh p-6">
+      <div className="absolute inset-0 bg-grid [mask-image:linear-gradient(to_bottom,black,transparent_80%)] opacity-20" />
+      <Card className="relative w-full max-w-md gap-4 text-center">
+        <CardHeader className="items-center">
+          <p className="font-display text-7xl leading-none text-primary/80">
+            500
+          </p>
+          <h1 className="font-display text-3xl leading-tight tracking-tight">
+            {t("title")}
+          </h1>
+          <CardDescription>{t("description")}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button onClick={reset}>{t("retry")}</Button>
+        </CardContent>
+      </Card>
     </div>
   );
 }

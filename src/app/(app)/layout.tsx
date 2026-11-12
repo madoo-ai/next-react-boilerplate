@@ -29,7 +29,7 @@ export default async function AppLayout({
       <AppSidebar user={user} />
       <SidebarInset>
         <AppHeader />
-        <div className="flex flex-1 flex-col gap-6 p-4 md:p-6 lg:p-8">
+        <div className="flex flex-1 flex-col gap-6 app-canvas p-4 md:p-6 lg:p-8">
           {children}
         </div>
       </SidebarInset>

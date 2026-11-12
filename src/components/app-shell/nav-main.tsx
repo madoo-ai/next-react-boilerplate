@@ -47,7 +47,10 @@ export function NavMain({
                   isActive={isActivePath(pathname, item.href)}
                   tooltip={t(item.titleKey)}
                 >
-                  <Link href={item.href as Route}>
+                  <Link href={item.href as Route} className="relative">
+                    {isActivePath(pathname, item.href) ? (
+                      <span className="absolute top-1/2 left-0 h-4 w-0.5 -translate-y-1/2 rounded-full bg-sidebar-primary" />
+                    ) : null}
                     <Icon />
                     <span>{t(item.titleKey)}</span>
                   </Link>

@@ -14,8 +14,9 @@ All demo accounts use the password `password`.
 
 ## Script
 
-1. **Sign in as superadmin.** The dashboard shows totals, role distribution,
-   30-day sign-ups and recent users.
+1. **Open the landing page.** Click "Buka demo", sign in as superadmin and
+   continue to `/dashboard`. The dashboard shows totals, role distribution,
+   30-day user growth and recent users.
 2. **Open Users.** Search for `Andi`, filter by status `pending`, then clear the
    filters. The table is server-rendered and paginated.
 3. **Create a user.** Use the Create user button, fill the profile, pick a role
@@ -31,9 +32,10 @@ All demo accounts use the password `password`.
    login is blocked. Sign back in as superadmin, verify the account, then sign
    in as the new user.
 8. **Open Settings.** Update the profile, switch to English, try an OpenCode
-   color theme, switch to dark mode, then open Security and enable 2FA. Scan
-   the QR code with an authenticator app, verify a code, sign out and sign
-   back in to see the challenge page.
+   color theme (or use the live palette strip on the landing page), switch to
+   dark mode, then open Security and enable 2FA. Scan the QR code with an
+   authenticator app, verify a code, sign out and sign back in to see the
+   challenge page.
 9. **Try a forbidden route.** Sign in as the regular user and open
    `/admin/users` directly. The page guard redirects to `/403`.
 10. **Delete an account.** On the Profile danger zone, confirm the password and

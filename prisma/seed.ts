@@ -230,15 +230,23 @@ async function seedRbac() {
 
 async function seedUsers(roleIds: Map<string, string>) {
   const passwordHash = await hashPassword("password");
+  const day = 24 * 60 * 60 * 1000;
   let created = 0;
 
-  for (const demo of demoUsers) {
+  for (const [index, demo] of demoUsers.entries()) {
+    const createdAt = new Date(Date.now() - (index * 2 + 1) * day);
     const existing = await prisma.user.findUnique({
       where: { email: demo.email },
       select: { id: true },
     });
 
-    if (existing) continue;
+    if (existing) {
+      await prisma.user.update({
+        where: { id: existing.id },
+        data: { createdAt },
+      });
+      continue;
+    }
 
     const userId = ulid();
     const roleId = roleIds.get(demo.role);
@@ -253,6 +261,7 @@ async function seedUsers(roleIds: Map<string, string>) {
         roleId,
         jobTitle: demo.jobTitle,
         department: demo.department,
+        createdAt,
         accounts: {
           create: {
             id: ulid(),

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Instrument_Serif, Inter } from "next/font/google";
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -21,6 +21,13 @@ import "./themes.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -55,7 +62,8 @@ export default async function RootLayout({
       lang={locale}
       suppressHydrationWarning
       data-color-theme={colorTheme === "default" ? undefined : colorTheme}
-      className={`${inter.variable} h-full`}
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${instrumentSerif.variable} h-full`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

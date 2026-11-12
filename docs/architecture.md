@@ -2,9 +2,9 @@
 
 ## Request lifecycle
 
-1. `src/proxy.ts` checks whether the session cookie is present. It redirects
-   guests away from protected routes and never treats the cookie as proof of a
-   valid session.
+1. `/` is the public landing page. `src/proxy.ts` checks whether the session
+   cookie is present. It redirects guests away from every protected route and
+   never treats the cookie as proof of a valid session.
 2. The authenticated layout calls `requireSession()`. That helper reads the
    Better Auth session, loads the user and role from Postgres and redirects
    pending or suspended users to login.
@@ -21,12 +21,14 @@
 ```text
 src/
   app/
+    (marketing)/             # public landing page
     (auth)/                  # login, register, reset, 2FA, confirm password
     (app)/                   # authenticated shell
+      template.tsx           # per-route enter animation
+      dashboard/page.tsx     # dashboard
       admin/users/           # list, create, edit
       admin/roles/           # role and permission matrix
       settings/              # profile, password, appearance, security
-      page.tsx               # dashboard
     api/auth/[...all]/       # Better Auth handler
     api/health/              # Docker health check
   components/
@@ -34,6 +36,8 @@ src/
     auth/                    # auth forms and auth-only primitives
     common/                  # page header, stat card, pagination
     dashboard/               # charts
+    marketing/               # landing hero, preview, theme rail
+    theme/                   # shared theme cards and pills
     roles/ users/ settings/  # domain forms and tables
     ui/                      # shadcn primitives (Altics icons)
   config/                    # app name and navigation
@@ -71,6 +75,20 @@ import { CheckIcon, SearchLgIcon } from "@x1nx3r/altics-react-icons";
 The shadcn CLI config still says `iconLibrary: "lucide"` because the CLI has no
 Altics adapter. After adding a shadcn primitive, replace any `lucide-react`
 imports with the Altics equivalents. ESLint rejects `lucide-react` imports.
+
+## Motion
+
+The marketing page and auth layout use a display face (Instrument Serif) while
+the product screens stay on Inter. Motion is deliberately limited:
+
+- The landing hero runs one staggered page-load sequence (`.animate-rise`).
+- App route changes use a 180ms opacity fade through `(app)/template.tsx`.
+- Buttons use a fast press scale; theme cards use color and a small swatch
+  scale on hover.
+- The only ambient motion is a slow mesh drift on the landing hero.
+- Everything non-essential is gated with `motion-safe`, and a global
+  `prefers-reduced-motion` rule neutralizes the rest.
+- Animate `transform` and `opacity` only. Do not animate layout properties.
 
 ## Server and client boundaries
 

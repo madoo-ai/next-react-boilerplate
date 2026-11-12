@@ -389,6 +389,28 @@ When Sohne is unavailable, fall back to **SF Pro Display** at thin weights, then
 
 Sohne is proprietary. Use **Inter** (open-source via Google Fonts) at weight 300 with `letter-spacing: -1.4px` and `font-feature-settings: "ss01"` for display tiers — Inter is the closest open-source analogue. For body sizes, Inter at 300 weight with `font-feature-settings: "tnum"` (where applicable) is the canonical substitute. Avoid Helvetica or system-ui defaults — they're heavier than the brand needs.
 
+## Marketing surface
+
+The public landing page and the auth screens use **Instrument Serif** for
+editorial headings while the product shell stays on Inter. The pairing is
+deliberate: the serif carries the marketing voice, Inter carries the work.
+Display headings use Instrument Serif at 400 with tight negative tracking;
+product page titles stay Inter at 300.
+
+The landing page is also the live theme lab. Its palette strip writes the same
+`color-theme` cookie as Settings → Appearance, and the gradient mesh reads the
+active theme tokens instead of a fixed palette.
+
+Motion is one intentional moment, not a layer of effects:
+
+- a staggered hero load (`.animate-rise`),
+- a 180ms route fade through `(app)/template.tsx`,
+- a slow mesh drift on the hero,
+- press feedback on buttons and a small swatch scale on theme cards.
+
+Everything except the functional feedback is gated with `motion-safe`. The
+reduced-motion path is static and complete.
+
 ## Layout
 
 ### Spacing System

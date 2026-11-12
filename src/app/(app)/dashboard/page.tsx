@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import {
   CheckCircleIcon as CheckCircle2,
+  ChevronRightIcon,
   ClockIcon as Clock3,
   Key01Icon as KeyRound,
   ShieldTickIcon as ShieldCheck,
@@ -16,8 +17,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardAction,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -77,7 +78,54 @@ export default async function DashboardPage() {
             </Button>
           }
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Card className="relative gap-0 overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,color-mix(in_oklab,var(--primary)_14%,transparent),transparent_62%)]" />
+          <CardContent className="relative flex flex-col gap-6 p-6 sm:flex-row sm:items-center">
+            <Avatar className="size-16 rounded-2xl ring-1 ring-border/60">
+              <AvatarFallback className="rounded-2xl bg-primary/10 text-xl text-primary">
+                {initials(session.user.name)}
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex min-w-0 flex-1 flex-col gap-1">
+              <p className="text-xs text-muted-foreground">
+                {tCommon("profile")}
+              </p>
+              <p className="font-display text-3xl leading-tight tracking-tight">
+                {session.user.name}
+              </p>
+              <p className="truncate text-sm text-muted-foreground">
+                {session.user.email}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="outline">
+                {session.user.role?.label ?? tCommon("unknown")}
+              </Badge>
+              <Badge variant={statusVariant(session.user.status)}>
+                {tCommon(session.user.status)}
+              </Badge>
+            </div>
+          </CardContent>
+          <div className="relative grid gap-4 border-t border-border/60 p-6 sm:grid-cols-3">
+            <div className="flex flex-col gap-1 text-sm">
+              <span className="text-muted-foreground">
+                {tCommon("jobTitle")}
+              </span>
+              <span>{session.user.jobTitle ?? "—"}</span>
+            </div>
+            <div className="flex flex-col gap-1 text-sm">
+              <span className="text-muted-foreground">
+                {tCommon("department")}
+              </span>
+              <span>{session.user.department ?? "—"}</span>
+            </div>
+            <div className="flex flex-col gap-1 text-sm">
+              <span className="text-muted-foreground">{tCommon("phone")}</span>
+              <span>{session.user.phoneNumber ?? "—"}</span>
+            </div>
+          </div>
+        </Card>
+        <div className="grid gap-4 sm:grid-cols-3">
           <StatCard
             label={tCommon("role")}
             value={session.user.role?.label ?? tCommon("unknown")}
@@ -98,30 +146,6 @@ export default async function DashboardPage() {
             icon={KeyRound}
           />
         </div>
-        <Card>
-          <CardHeader>
-            <CardTitle>{session.user.name}</CardTitle>
-            <CardDescription>{session.user.email}</CardDescription>
-          </CardHeader>
-          <CardContent className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="flex flex-col gap-1 text-sm">
-              <span className="text-muted-foreground">
-                {tCommon("jobTitle")}
-              </span>
-              <span>{session.user.jobTitle ?? "—"}</span>
-            </div>
-            <div className="flex flex-col gap-1 text-sm">
-              <span className="text-muted-foreground">
-                {tCommon("department")}
-              </span>
-              <span>{session.user.department ?? "—"}</span>
-            </div>
-            <div className="flex flex-col gap-1 text-sm">
-              <span className="text-muted-foreground">{tCommon("phone")}</span>
-              <span>{session.user.phoneNumber ?? "—"}</span>
-            </div>
-          </CardContent>
-        </Card>
         <div className="flex flex-wrap gap-2">
           <Button asChild variant="outline">
             <Link href="/settings/profile">{tCommon("profile")}</Link>
@@ -176,14 +200,14 @@ export default async function DashboardPage() {
       <Card>
         <CardHeader>
           <CardTitle>{t("recentUsers")}</CardTitle>
-          <CardDescription>
-            <Link
-              href="/admin/users"
-              className="underline-offset-4 hover:text-primary hover:underline"
-            >
-              {t("viewAll")}
-            </Link>
-          </CardDescription>
+          <CardAction>
+            <Button asChild variant="ghost" size="sm">
+              <Link href="/admin/users">
+                {t("viewAll")}
+                <ChevronRightIcon data-icon="inline-end" />
+              </Link>
+            </Button>
+          </CardAction>
         </CardHeader>
         <CardContent>
           {data.recentUsers.length === 0 ? (

@@ -59,6 +59,7 @@
     "openMenu": "Buka menu",
     "toggleSidebar": "Buka/tutup sidebar",
     "backToDashboard": "Kembali ke dasbor",
+    "backToHome": "Kembali ke beranda",
     "showPassword": "Tampilkan kata sandi",
     "hidePassword": "Sembunyikan kata sandi",
     "remove": "Hapus",
@@ -209,7 +210,7 @@
     "charts": {
       "roleDistribution": "Pengguna per peran",
       "roleDistributionHint": "Akun dikelompokkan berdasarkan peran.",
-      "signups": "Pengguna baru (30 hari)",
+      "signups": "Pertumbuhan pengguna (30 hari)",
       "signupsHint": "Akun yang dibuat dalam 30 hari terakhir.",
       "users": "Pengguna",
       "noData": "Belum ada data."
@@ -391,6 +392,136 @@
       "title": "Terjadi kesalahan",
       "description": "Terjadi kesalahan tak terduga. Coba lagi.",
       "retry": "Coba lagi"
+    }
+  },
+  "landing": {
+    "meta": {
+      "title": "Starter Next.js dengan sudut pandang.",
+      "description": "Starter Next.js 16 yang serius dengan Better Auth, Prisma, RBAC, i18n, dan 38 tema warna."
+    },
+    "nav": {
+      "features": "Isi boilerplate",
+      "themes": "Tema",
+      "stack": "Stack",
+      "signIn": "Masuk",
+      "dashboard": "Buka dasbor"
+    },
+    "hero": {
+      "title": "Mulai dari bagian yang tak ingin Anda bangun ulang.",
+      "description": "Autentikasi, peran, manajemen pengguna, pengaturan, lokalisasi, dan shell shadcn yang bisa diganti tema. Fondasi Next.js yang serius untuk hal yang benar-benar milik Anda.",
+      "primaryCta": "Buka demo",
+      "primaryCtaAuthed": "Buka dasbor",
+      "secondaryCta": "Lihat isinya",
+      "note": "Next.js 16, Prisma 7, Better Auth, dan 38 tema. Akun demo memakai kata sandi \"password\".",
+      "previewLabel": "Pratinjau dasbor",
+      "themesBadge": "38 tema"
+    },
+    "themes": {
+      "live": "Palet langsung",
+      "current": "Saat ini",
+      "title": "38 palet. Satu sistem.",
+      "description": "Mode dan palet berdiri sendiri. Pilih terang, gelap, atau sistem, lalu beri permukaan Stripe, Dracula, Nord, atau Catppuccin. Pilihan tersimpan di cookie dan langsung terbaca di request berikutnya.",
+      "all": "Buka pengaturan tampilan",
+      "featured": "Palet pilihan"
+    },
+    "features": {
+      "title": "Pekerjaan yang Anda ulang terus, sudah selesai.",
+      "description": "Boilerplate ini menangani bagian yang mahal untuk dibuat benar dan mudah dibuat salah. Domainnya milik Anda.",
+      "items": {
+        "auth": {
+          "title": "Autentikasi yang patuh",
+          "body": "Email dan kata sandi, verifikasi, reset, 2FA TOTP, gerbang konfirmasi kata sandi, dan mode persetujuan yang benar-benar memblokir akun menunggu."
+        },
+        "rbac": {
+          "title": "Izin dengan tulang punggung",
+          "body": "Satu peran per pengguna, matriks izin, superadmin terlindungi, dan pemeriksaan eskalasi di dalam aksi, bukan hanya di sidebar."
+        },
+        "shell": {
+          "title": "Shell yang siap dipakai",
+          "body": "Sidebar, breadcrumb, pengaturan, profil, kata sandi, tampilan, keamanan, dan penghapusan akun. Satu judul per halaman, form yang konsisten, dan empty state yang benar."
+        },
+        "data": {
+          "title": "Bertipe dari ujung ke ujung",
+          "body": "Prisma 7, Zod, Server Actions, tautan bertipe, dan seed yang membuat layar terasa nyata."
+        },
+        "design": {
+          "title": "Fondasi desain",
+          "body": "Palet default bergaya Stripe dan 37 palet OpenCode, token semantik, serta ikon Altics. Ganti identitas tanpa membangun ulang UI."
+        },
+        "ops": {
+          "title": "Operasional yang membosankan",
+          "body": "Satu Postgres, satu Dockerfile, stack Compose, seed, dan Makefile. Cerita deployment tetap jelas."
+        }
+      }
+    },
+    "stack": {
+      "title": "Membosankan di tempat yang tepat.",
+      "description": "Satu framework, satu database, satu pustaka auth, satu lapisan UI. Pilihannya disengaja, dan quality gate berjalan di CI.",
+      "note": "Plus Zod, React Hook Form, next-intl, Sonner, dan Recharts.",
+      "items": {
+        "next": {
+          "name": "Next.js 16",
+          "role": "App Router, RSC, Server Actions"
+        },
+        "react": {
+          "name": "React 19",
+          "role": "UI server-first"
+        },
+        "typescript": {
+          "name": "TypeScript",
+          "role": "Mode strict"
+        },
+        "prisma": {
+          "name": "Prisma 7",
+          "role": "Skema, migrasi, klien"
+        },
+        "postgres": {
+          "name": "PostgreSQL 18",
+          "role": "Satu-satunya database"
+        },
+        "tailwind": {
+          "name": "Tailwind CSS 4",
+          "role": "Token semantik"
+        },
+        "auth": {
+          "name": "Better Auth",
+          "role": "Sesi, 2FA, verifikasi"
+        },
+        "docker": {
+          "name": "Docker",
+          "role": "Runtime standalone"
+        },
+        "vitest": {
+          "name": "Vitest",
+          "role": "Unit test"
+        },
+        "playwright": {
+          "name": "Playwright",
+          "role": "End-to-end test"
+        }
+      }
+    },
+    "demo": {
+      "title": "Coba aplikasi aslinya.",
+      "description": "Demo sudah di-seed dengan tiga peran dan cukup banyak pengguna agar dasbor, tabel, dan grafik terasa nyata. Tanpa setup, tanpa panggilan sales.",
+      "accounts": "Akun demo",
+      "password": "Kata sandi",
+      "signIn": "Masuk ke demo",
+      "create": "Buat akun",
+      "command": "Atau jalankan secara lokal",
+      "copy": "Gunakan kata sandi \"password\"."
+    },
+    "footer": {
+      "tagline": "Starter Next.js dengan sudut pandang.",
+      "product": "Produk",
+      "access": "Akses",
+      "features": "Isi boilerplate",
+      "themes": "Tema",
+      "stack": "Stack",
+      "signIn": "Masuk",
+      "create": "Buat akun",
+      "license": "Lisensi MIT.",
+      "built": "Dibangun dengan Next.js, Prisma, Better Auth, dan ikon Altics."
     }
   },
   "permissions": {

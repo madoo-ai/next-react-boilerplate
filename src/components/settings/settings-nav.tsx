@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Route } from "next";
+import { cn } from "cn";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
@@ -27,10 +28,19 @@ export function SettingsNav() {
           <Button
             key={item.href}
             asChild
-            variant={active ? "secondary" : "ghost"}
-            className="justify-start whitespace-nowrap"
+            variant="ghost"
+            className={cn(
+              "relative justify-start whitespace-nowrap",
+              active &&
+                "bg-primary/10 text-primary hover:bg-primary/15 hover:text-primary",
+            )}
           >
-            <Link href={item.href as Route}>{t(item.key)}</Link>
+            <Link href={item.href as Route}>
+              {active ? (
+                <span className="absolute top-1/2 left-0 h-4 w-0.5 -translate-y-1/2 rounded-full bg-primary" />
+              ) : null}
+              {t(item.key)}
+            </Link>
           </Button>
         );
       })}

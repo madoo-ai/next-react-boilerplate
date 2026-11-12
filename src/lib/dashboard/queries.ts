@@ -76,10 +76,16 @@ export async function getDashboardData(locale: "en" | "id" = "id") {
       label: role.label,
       users: role._count.users,
     })),
-    signupData: [...buckets.values()].map((bucket) => ({
-      date: bucket.label,
-      users: bucket.users,
-    })),
+    signupData: [...buckets.values()].reduce<
+      Array<{ date: string; users: number }>
+    >((series, bucket) => {
+      const previous = series.at(-1)?.users ?? 0;
+      series.push({
+        date: bucket.label,
+        users: previous + bucket.users,
+      });
+      return series;
+    }, []),
     recentUsers,
   };
 }

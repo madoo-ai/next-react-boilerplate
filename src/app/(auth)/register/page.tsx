@@ -16,7 +16,7 @@ export default async function RegisterPage() {
   const session = await getSession();
 
   if (session) {
-    redirect("/");
+    redirect("/dashboard");
   }
 
   const t = await getTranslations("auth.register");

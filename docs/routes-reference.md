@@ -4,6 +4,7 @@
 
 | Method | Path                        | Purpose                       |
 | ------ | --------------------------- | ----------------------------- |
+| GET    | `/`                         | Public landing page           |
 | GET    | `/login`                    | Sign in                       |
 | GET    | `/register`                 | Self-registration             |
 | GET    | `/forgot-password`          | Request a reset link          |
@@ -14,14 +15,15 @@
 | ANY    | `/api/auth/*`               | Better Auth handler           |
 | GET    | `/api/health`               | Database health check         |
 
-The proxy requires a session cookie for every other path. `/confirm-password`
-also requires a session, checked by the page itself.
+The proxy requires a session cookie for every other path. `/` is public and
+shows a dashboard link when a valid session exists. `/confirm-password` also
+requires a session, checked by the page itself.
 
 ## Authenticated
 
 | Method | Path                         | Access          | Purpose                                                          |
 | ------ | ---------------------------- | --------------- | ---------------------------------------------------------------- |
-| GET    | `/`                          | any active user | Dashboard (team view with `view_admin`, personal view otherwise) |
+| GET    | `/dashboard`                 | any active user | Dashboard (team view with `view_admin`, personal view otherwise) |
 | GET    | `/settings`                  | any active user | Redirect to `/settings/profile`                                  |
 | GET    | `/settings/profile`          | any active user | Profile form and danger zone                                     |
 | GET    | `/settings/password`         | any active user | Change password                                                  |

@@ -56,7 +56,7 @@ test("registration signs in immediately when approval is off", async ({
   await page.getByLabel("Konfirmasi kata sandi").fill("password123");
   await page.getByRole("button", { name: "Buat akun" }).click();
 
-  await expect(page).toHaveURL("/");
+  await expect(page).toHaveURL("/dashboard");
   await expect(
     page.getByRole("heading", { name: "Dasbor", exact: true }),
   ).toBeVisible();
