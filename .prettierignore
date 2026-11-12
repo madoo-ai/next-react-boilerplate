@@ -1,0 +1,12 @@
+node_modules
+.next
+.manus
+src/generated
+src/components/ui
+.agents
+.claude
+.windsurf
+test-results
+playwright-report
+coverage
+package-lock.json

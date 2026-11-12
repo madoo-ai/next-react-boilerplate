@@ -1,0 +1,43 @@
+# syntax and VCS
+.git
+.github
+.dockerignore
+Dockerfile
+compose.yaml
+
+# dependencies and build output
+node_modules
+.next
+out
+build
+coverage
+
+# local state and secrets
+.env
+.env.*
+!.env.example
+.manus
+**/.npmrc
+
+# tests and reports
+test-results
+playwright-report
+tests
+playwright.config.ts
+vitest.config.ts
+
+# agent and editor files
+.agents
+.claude
+.windsurf
+.vscode
+.idea
+skills-lock.json
+
+# docs and tooling not needed by the image build
+docs
+*.md
+Makefile
+eslint.config.mjs
+.prettierrc
+.prettierignore
