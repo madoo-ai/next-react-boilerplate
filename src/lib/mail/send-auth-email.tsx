@@ -1,6 +1,6 @@
 import "server-only";
 
-import { render } from "@react-email/render";
+import { render } from "react-email";
 import nodemailer, { type Transporter } from "nodemailer";
 
 import {
