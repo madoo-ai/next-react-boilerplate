@@ -6,7 +6,7 @@ name: next-react-boilerplate
 # The next-node24 profile supplies Node 24 and PostgreSQL 18.
 environment:
   profile: next-node24
-  version: "upstream-0fa69c156f"
+  version: "upstream-d85859deec"
 
 workspace: template
 preview:
