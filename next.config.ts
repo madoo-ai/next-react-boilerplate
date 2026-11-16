@@ -3,11 +3,17 @@ import type { NextConfig } from "next";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+// The platform exposes the preview at p-<session>.<public-base>. Next 16
+// blocks cross-origin dev resources unless that host is declared. The base is
+// deployment-specific, so it comes from the session environment.
+const publicBase = process.env.MANUS_PUBLIC_BASE?.trim();
+
 const nextConfig: NextConfig = {
   output: "standalone",
   typedRoutes: true,
   reactCompiler: true,
   devIndicators: false,
+  allowedDevOrigins: publicBase ? [`*.${publicBase}`] : [],
   turbopack: {
     rules: {
       "*.css": {
