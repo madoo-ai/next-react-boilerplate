@@ -29,11 +29,17 @@ async function getDefaultRoleId() {
   return role?.id ?? null;
 }
 
+// A session preview is served from p-<session>.<public-base>, not from the
+// local dev URL. Better Auth validates the request origin, so use the public
+// preview origin when the platform provides one.
+const authBaseURL =
+  process.env.MANUS_PREVIEW_URL?.trim() || env.BETTER_AUTH_URL;
+
 export const auth = betterAuth({
   appName: env.NEXT_PUBLIC_APP_NAME,
-  baseURL: env.BETTER_AUTH_URL,
+  baseURL: authBaseURL,
   secret: env.BETTER_AUTH_SECRET,
-  trustedOrigins: [env.BETTER_AUTH_URL],
+  trustedOrigins: [...new Set([authBaseURL, env.BETTER_AUTH_URL])],
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
