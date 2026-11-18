@@ -1,5 +1,6 @@
 import "dotenv/config";
 
+import { existsSync } from "node:fs";
 import { defineConfig, devices } from "@playwright/test";
 
 const PORT = 3100;
@@ -7,6 +8,9 @@ const baseURL = `http://localhost:${PORT}`;
 const testDatabaseUrl =
   process.env.TEST_DATABASE_URL ??
   "postgresql://postgres:postgres@127.0.0.1:5432/next_boilerplate_test?schema=public";
+const chromiumExecutable =
+  process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE ??
+  (existsSync("/opt/chromium/chrome") ? "/opt/chromium/chrome" : undefined);
 
 const env = Object.fromEntries(
   Object.entries({
@@ -33,6 +37,10 @@ export default defineConfig({
     baseURL,
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
+    launchOptions: {
+      ...(chromiumExecutable ? { executablePath: chromiumExecutable } : {}),
+      args: ["--no-sandbox", "--disable-dev-shm-usage"],
+    },
   },
   projects: [
     {
